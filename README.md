@@ -19,22 +19,22 @@ curl -fsSL https://rmbug.com/install.sh | sh
 ### Linux (apt)
 
 ```bash
-curl -fsSL https://dl.rmbug.com/agent/apt/gpg.asc | sudo gpg --dearmor -o /usr/share/keyrings/rmbug.gpg
-echo "deb [signed-by=/usr/share/keyrings/rmbug.gpg] https://dl.rmbug.com/agent/apt stable main" | sudo tee /etc/apt/sources.list.d/rmbug.list
+curl -fsSL https://packages.rmbug.com/apt/gpg.asc | sudo gpg --dearmor -o /usr/share/keyrings/rmbug.gpg
+echo "deb [signed-by=/usr/share/keyrings/rmbug.gpg] https://packages.rmbug.com/apt stable main" | sudo tee /etc/apt/sources.list.d/rmbug.list
 sudo apt-get update && sudo apt-get install rmbug-agent
 ```
 
 ### Linux (yum / dnf)
 
 ```bash
-sudo rpm --import https://dl.rmbug.com/agent/gpg.asc
+sudo rpm --import https://packages.rmbug.com/yum/gpg.asc
 sudo tee /etc/yum.repos.d/rmbug.repo << 'EOF'
 [rmbug]
 name=rmBug Agent
-baseurl=https://dl.rmbug.com/agent/yum
+baseurl=https://packages.rmbug.com/yum
 enabled=1
 gpgcheck=1
-gpgkey=https://dl.rmbug.com/agent/gpg.asc
+gpgkey=https://packages.rmbug.com/yum/gpg.asc
 EOF
 sudo dnf install rmbug-agent
 ```
